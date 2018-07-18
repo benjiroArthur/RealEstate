@@ -104,7 +104,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember" style="color: white">
+                            <label class="form-check-label offset-6" for="remember" style="color: white">
                                 {{ __('Remember Me') }}
                             </label>
                         </div>
@@ -117,6 +117,10 @@
 
                 <a class="btn btn-link" href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
+                </a> <br>
+
+                <a class="btn btn-link" href="{{ route('admin.login') }}">
+                    {{ __('Login As Admin') }}
                 </a>
             </form>
 

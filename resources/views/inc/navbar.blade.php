@@ -88,9 +88,9 @@
                   <li class="nav-item" id="bgg1">
                       <a class="nav-link" href="{{ route('login') }}" id="bgg">{{ __('Login') }}</a>
                   </li>
-                  <li class="nav-item" id="bgg1">
-                      <a class="nav-link" href="{{ route('register') }}" id="bgg">{{ __('Register') }}</a>
-                  </li>
+                  {{--<li class="nav-item" id="bgg1">--}}
+                      {{--<a class="nav-link" href="{{ route('register') }}" id="bgg">{{ __('Register') }}</a>--}}
+                  {{--</li>--}}
               @else
                   <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -98,9 +98,12 @@
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        @if(Auth::user()->username === 'admin')
-                        <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
-                              <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                          @if(Auth::guard('admin')->check())
+                        <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a>
+                              <a class="dropdown-item" href="{{ route('admin.login') }}">{{ __('Login As Admin') }}</a>
+
+                              <a class="dropdown-item" href="{{ route('admin.add.user') }}">{{ __('Add User') }}</a>
+
                           <a class="dropdown-item" href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

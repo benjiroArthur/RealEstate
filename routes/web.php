@@ -22,6 +22,8 @@ Route::resource('properties','PropertiesController');
 Route::post('/storecontact', 'ContactController@store');
 
 
+
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
@@ -32,6 +34,7 @@ Route::prefix('admin')->group(function(){
     Route::post('/login', 'Auth\AdminLOginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/add-user', 'AddUserController@index')->name('admin.add.user');
 
     //password reset route
     Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
