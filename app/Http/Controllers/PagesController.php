@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact;
+use App\Properties;
 
 class PagesController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+//        return view('pages.index');
+        $properties = Properties::orderBy('created_at', 'desc')->paginate(12);
+        return view('pages.index')->with('properties', $properties);
     }
 
     public function about()

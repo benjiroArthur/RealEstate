@@ -15,14 +15,11 @@
         {{--@endif--}}
 
         <div class="content">
-            <div class="title m-b-md">
+            <div class="title m-b-md sm-12">
                 LYNC-GH REAL ESTATE
             </div>
-            <div id="typed-strings">
-                <p>Typed.js is a <strong>JavaScript</strong> library.</p>
-                <p>It <em>types</em> out sentences.</p>
-            </div>
-            <span id="typed"></span>
+
+           <h2><span class="typed"></span></h2>
 
             <div class="panel">
                 @component('components.who')
@@ -107,7 +104,11 @@
     {{--</body>--}}
 {{--</html>--}}
 <script>
-    var typed = new Typed('#typed', {
-        stringsElement: '#typed-strings'
+    $(function(){
+        $(".typed").typed({
+            strings:["this is a test","i think it worked"],
+            typeSpeed:45,
+            loop:true
+        });
     });
 </script>

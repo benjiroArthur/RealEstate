@@ -21,6 +21,8 @@ Route::get('/contact', 'PagesController@contact');
 Route::resource('properties','PropertiesController');
 Route::post('/storecontact', 'ContactController@store');
 
+Route::resource('users','UsersController');
+
 
 
 

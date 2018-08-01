@@ -80,7 +80,7 @@
             <form method="POST" action="{{ route('admin.login.submit') }}">
             @csrf
 
-                <p>E-MAIL</p>
+                <p><span class="ti ti-email"></span> E-MAIL</p>
                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                 @if ($errors->has('email'))
@@ -89,7 +89,7 @@
                                     </span>
                 @endif
 
-                <p>PASSWORD</p>
+                <p><span class="ti ti-lock"></span> PASSWORD</p>
                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                 @if ($errors->has('password'))

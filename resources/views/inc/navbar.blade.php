@@ -88,9 +88,9 @@
                   <li class="nav-item" id="bgg1">
                       <a class="nav-link" href="{{ route('login') }}" id="bgg">{{ __('Login') }}</a>
                   </li>
-                  {{--<li class="nav-item" id="bgg1">--}}
-                      {{--<a class="nav-link" href="{{ route('register') }}" id="bgg">{{ __('Register') }}</a>--}}
-                  {{--</li>--}}
+                  <li class="nav-item" id="bgg1">
+                      <a class="nav-link" href="{{ route('admin.dashboard') }}" id="bgg">{{ __('Admin') }}</a>
+                  </li>
               @else
                   <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

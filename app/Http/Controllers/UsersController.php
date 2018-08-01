@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Properties;
+use App\User;
 
-class PropertiesController extends Controller
+class UsersController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth',['except'=>['index', 'show']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +14,8 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        $properties = Properties::orderBy('created_at', 'desc')->paginate(12);
-        return view('properties.index')->with('properties', $properties);
+        $users = User::orderBy('id');
+        return view('users.viewAll')->with('users',$users);
     }
 
     /**
@@ -30,7 +25,7 @@ class PropertiesController extends Controller
      */
     public function create()
     {
-        return view('properties.create');
+        //
     }
 
     /**
@@ -41,13 +36,7 @@ class PropertiesController extends Controller
      */
     public function store(Request $request)
     {
-
-        //Validate post fields to ensure none empty fields
-        $this->validate($request,[
-            'title' => 'required',
-            'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
-        ]);
+        //
     }
 
     /**
@@ -56,7 +45,6 @@ class PropertiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
         //
