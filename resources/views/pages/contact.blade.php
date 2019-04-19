@@ -4,9 +4,9 @@
 
 
     @section('content')
-        <div class="inside-banner">
-            <div class="container" style="display: inline-block">
-                <span class="text-right" style="float: right"><a href="{{url('/contact')}}" style="color: mediumvioletred">About</a> / Contact Us</span>
+        <div class="inside-banner" style="height: 50px; padding-top: 5px;">
+            <div class="container-fluid" style="display: inline-block">
+                <span class="text-right" style="float: right"><a href="{{url('/contact')}}" style="color: mediumvioletred">Contact</a> / Contact Us</span>
                 <h2 class="text-left">Contact Us</h2>
             </div>
         </div>
@@ -16,7 +16,7 @@
         <div class="container">
             <div class="spacer">
                 <div class="row contact">
-                    <div class="col-lg-6 offset-3" style="background: rgba(0,0,0,.5);">
+                    <div id="box" class="col-lg-6 offset-3" style="background: rgba(0,0,0,.5);">
                         {!! Form::open(['action' => 'ContactController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data','files'=>'true']) !!}
                         {{ csrf_field() }}
 
@@ -60,7 +60,7 @@
 
 <style>
 
-    body
+    #box
     {
         background: url('{{asset("storage/images/bglog.jpg")}}')center center no-repeat !important;
     }

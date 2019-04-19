@@ -302,7 +302,17 @@ class PropertiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //delete single post
+        $properties = Properties::find($id);
+
+        //check for correct user
+        if(auth()->user()->id !== $properties->uers_id)
+        {
+            return redirect('/dashboard')->with('error', 'Unauthorized Access');
+        }
+
+        $properties->delete();
+        return redirect('/dashboard')->with('success', 'Property Deleted Successfully');
 
     }
 

@@ -17,7 +17,7 @@ class CreatePropertiesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->decimal('price');
-            $table->string('images');
+//            $table->string('images');
             $table->string('address');
             $table->string('access');
             $table->string('floor_space');

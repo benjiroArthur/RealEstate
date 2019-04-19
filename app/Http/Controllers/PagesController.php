@@ -10,9 +10,13 @@ class PagesController extends Controller
 {
     public function index()
     {
-//        return view('pages.index');
-        $properties = Properties::orderBy('created_at', 'desc')->paginate(12);
-        return view('pages.index')->with('properties', $properties);
+//
+
+        $premiumProperties = Properties::where('available', '=', 1)->where('class','=','1')->orderBy('created_at', 'desc')->paginate(4);
+        $allProperties = Properties::where('available', '=',1)->orderBy('created_at', 'desc')->paginate(30);
+        $resentProperties = Properties::where('available', '=',1)->orderBy('created_at', 'desc')->paginate(10);
+
+        return view('pages.index')->with('premiumProperties', $premiumProperties)->with('allProperties', $allProperties)->with('resentProperties', $resentProperties);
     }
 
     public function about()
@@ -24,6 +28,10 @@ class PagesController extends Controller
     {
         return view('pages.contact');
     }
+
+
+
+
 
 
 //    public function storeContact(Request $request)
@@ -49,7 +57,7 @@ class PagesController extends Controller
 //        $contact->save();
 //
 //        return redirect('/contact')->with('success', 'Message Sent Successfully');
-//    }
+//
 
 
 }

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Properties;
+use App\NotifyMe;
 
-class UsersController extends Controller
+class notifyMeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('users.viewAll')->with('users',$users);
+        //
     }
 
     /**
@@ -37,7 +35,17 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //        Validate post fields to ensure none empty fields
+        $this->validate($request,[
+            'email' => 'required|string|email|max:255|unique:notify_me',
+        ]);
+
+        // Store email in the notify_me table
+        $notifyMe = new NotifyMe;
+
+        $notifyMe->email = $request->input('email');
+        $notifyMe->save();
+        return redirect()->back()->with('success', 'Thanks For The Request, We Will Notify You');
     }
 
     /**
@@ -82,6 +90,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //delete notify me entry
+
+        //find email by is
+        $notifyMe = NotifyMe::find($id);
+        $notifyMe->delete();
     }
 }

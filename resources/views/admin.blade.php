@@ -9,16 +9,7 @@
                 <div class="card-header text-center"  style="color: mediumvioletred"><span class="ti ti-user"></span> ADMIN</div>
                 <div class="row justify-content-center" style="display: inline-block; margin: 20px;
 ">
-                {{--<div class="card-body col-md-3 offset-1" style="display: inline; float: left;">--}}
-                    {{--@if (session('status'))--}}
-                        {{--<div class="alert alert-success" role="alert">--}}
-                            {{--{{ session('status') }}--}}
-                        {{--</div>--}}
-                    {{--@endif--}}
 
-                    {{--@component('components.who')--}}
-                    {{--@endcomponent--}}
-                {{--</div>--}}
 
                 <div class="card-body col-md-6 btn btn-default text-center" id="cardd" style="display: inline; float: left;  background-color: transparent; height: 150px; width: 90%; padding-top: 50px; ">
 
@@ -37,6 +28,8 @@
 
         </div>
     </div>
+
+
 </div>
 
     <style>

@@ -25,4 +25,9 @@ class AdminController extends Controller
     {
         return view('admin');
     }
+
+    public function sidebar()
+    {
+        return view('inc.admin_sidebar');
+    }
 }

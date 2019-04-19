@@ -4,20 +4,28 @@
 
 
 {{--@if(count($users)>0)--}}
-    <table class="table table-responsive">
+<table class="table table-responsive" xmlns="http://www.w3.org/1999/html">
         <tr>
-            <th>ID</th>
+
             <th>NAME</th>
             <th>EMAIL</th>
             <th>USERNAME</th>
             <th>PHONE NUMBER</th>
+            <th>ACTION</th>
         </tr>
         @foreach($users as $user)
-            <tr>{{$user->id}}</tr>
-            <tr>{{$user->name}}</tr>
-            <tr>{{$user->email}}</tr>
-            <tr>{{$user->username}}</tr>
-            <tr>{{$user->phone_number}}</tr>
+            <tr>
+
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+            <td>{{$user->username}}</td>
+            <td>{{$user->phone_number}}</td>
+            <td>
+                <form>
+                    <input><span></span></input>
+                </form>
+            </td>
+            </tr>
         @endforeach
     </table>
 

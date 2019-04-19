@@ -84,4 +84,8 @@
   //})
 
 
-
+$(document).ready(function(){
+    setTimeout(function(){
+        $('.site-preloader-wrap').addClass('loaded');
+    }, 3000)
+});

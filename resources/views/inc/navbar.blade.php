@@ -40,14 +40,17 @@
     #bgg1:hover{
         border-bottom: 2px solid mediumvioletred;
     }
+    #bgg:active{
+        border-bottom: 2px solid mediumvioletred;
+    }
 
 </style>
 
-
+<div class="container-fluid">
 <div class="navbar-wrapper">
-<nav class="navbar navbar-expand-md bg-dark navbar-dark  navbar-fixed-top" style="background-image: url('{{asset('storage/images/banner.jpg')}}');">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark  fixed-top " style="background-image: url('{{asset('storage/images/banner.jpg')}}');">
   <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url('/') }}">
+          <a class="navbar-brand" href="{{ url('/') }}">
           <img class="card-img" src="{{asset('storage/images/logo2.png')}}"  style="width: 100px; height: 20px;"><br>
           <small class="logotext1">LYNC-GH REALESTATE</small>
       </a>
@@ -140,13 +143,18 @@
 <div class="container">
 
     <!-- Header Starts -->
-    <div class="header">
+    {{--<div class="header">--}}
         <br><br>
-        <a href="index.php" style="text-decoration: none;"><img src="{{asset('storage/images/logo.png')}}" alt="Realestate" style="width: 200px"><br><p class="logotext">LYNC - GH <?php echo "&nbsp"; echo "&nbsp"; ?>REALESTATE</p></a>
+        {{--<a href="index.php" style="text-decoration: none;">--}}
+            {{--<img src="{{asset('storage/images/logo.png')}}" alt="Realestate" style="width: 200px">--}}
+            {{--<br><p class="logotext">LYNC - GH --}}
+<!--                --><?php //echo "&nbsp"; echo "&nbsp"; ?>
+                {{--REALESTATE</p></a>--}}
 
-    </div>
+    {{--</div>--}}
     <!-- #Header Starts -->
 </div>
+
 
 
 

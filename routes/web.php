@@ -18,10 +18,15 @@ Route::get('/', function () {
 Route::get('/home', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
+Route::get('/search', 'SearchController@searchform');
+Route::get('/searchesult', 'SearchController@searchResult');
+Route::post('/upload', 'PropertiesController@uploadImage')->name('uploadImage');
 Route::resource('properties','PropertiesController');
 Route::post('/storecontact', 'ContactController@store');
 
+
 Route::resource('users','UsersController');
+Route::resource('noyifyme','notifyMeController');
 
 
 
@@ -29,12 +34,16 @@ Route::resource('users','UsersController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/sidebar', 'DashboardController@sidebar');
 Route::get('/users/logout', 'Auth\LoginController@userLogout');
+Route::get('/view', 'DashboardController@viewAll');
+Route::get('/update', 'DashboardController@update');
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLOginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLOginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/sidebar', 'AdminController@sidebar')->name('admin.sidebar');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/add-user', 'AddUserController@index')->name('admin.add.user');
 
@@ -44,3 +53,5 @@ Route::prefix('admin')->group(function(){
     Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 });
+
+

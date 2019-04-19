@@ -1,36 +1,62 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            @include('inc.navigator')
+        </div>
+    </div><br>
     <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-12">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-12">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-
-                            @component('components.who')
-                            @endcomponent
-                        </div>
-                        <div class="col-md-4 col-sm-12">
-                            <a class="btn btn-primary" style="background: mediumvioletred" href="{{route('properties.create')}}">ADD PROPERTY</a>
-                        </div>
-                        <div class="col-md-4 col-sm-12">
-                            <a class="btn btn-primary" style="background: mediumvioletred" href="{{route('properties.index')}}">VIEW PROPERTY</a>
-                        </div>
-                    </div>
-
-
-                </div>
+        <div class="card mt-2 mr-5 col-sm-12 col-md-6 col-lg-3"  style="width: 95%">
+            <div class="card-header">Properties Available For Sale</div>
+            <div class="card-body">
+                <span class="ion ion-home"></span>
+                <p style="float: right">{{$saleAvailable}}</p>
             </div>
         </div>
+        <div class="card mt-2 mr-5 col-sm-12 col-md-6 col-lg-3"  style="width: 95%">
+            <div class="card-header">Properties Available For Rent</div>
+            <div class="card-body">
+                <span class="ion ion-home"></span>
+                <p style="float: right">{{$rentAvailable}}</p>
+            </div>
+        </div>
+        <div class="card mt-2 mr-5 col-sm-12 col-md-6 col-lg-3" style="width: 95%">
+            <div class="card-header">Properties Available For Lease</div>
+            <div class="card-body">
+                <span class="ion ion-home"></span>
+                <p style="float: right">{{$leaseAvailable}}</p>
+            </div>
+        </div>
+
     </div>
-</div>
+
+<br><br>
+    <div class="row justify-content-center">
+        <div class="card mt-2 mr-5 col-sm-12 col-md-6 col-lg-3"  style="width: 95%">
+            <div class="card-header">Properties Sold</div>
+            <div class="card-body">
+                <span class="ion ion-home"></span>
+                <p style="float: right">{{$saleUnavailable}}</p>
+            </div>
+        </div>
+        <div class="card mt-2 mr-5 col-sm-12 col-md-6 col-lg-3"  style="width: 95%">
+            <div class="card-header">Properties Rented</div>
+            <div class="card-body">
+                <span class="ion ion-home"></span>
+                <p style="float: right">{{$rentUnavailable}}</p>
+            </div>
+        </div>
+        <div class="card mt-2 mr-5 col-sm-12 col-md-6 col-lg-3" style="width: 95%">
+            <div class="card-header">Properties Leased</div>
+            <div class="card-body">
+                <span class="ion ion-home"></span>
+                <p style="float: right">{{$leaseUnavailable}}</p>
+            </div>
+        </div>
+
+    </div>
+
+<br>
 @endsection

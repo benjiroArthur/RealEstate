@@ -2,113 +2,157 @@
 
 
 @section('content')
-    <div class="flex-center position-ref">
-        {{--@if (Route::has('login'))--}}
-            {{--<div class="top-right links">--}}
-                {{--@auth--}}
-                    {{--<a href="{{ url('/home') }}">Home</a>--}}
-                {{--@else--}}
-                    {{--<a href="{{ route('login') }}">Login</a>--}}
-                    {{--<a href="{{ route('register') }}">Register</a>--}}
-                {{--@endauth--}}
-            {{--</div>--}}
-        {{--@endif--}}
 
-        <div class="content">
-            <div class="title m-b-md sm-12">
-                LYNC-GH REAL ESTATE
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+
+            <li data-target="#carouselExampleIndicators hidden-xs" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators hidden-xs" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators hidden-xs" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators hidden-xs" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators hidden-xs" data-slide-to="4"></li>
+
+        </ol>
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="{{asset('storage/images/slider/slideOne.jpg')}}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="row">
+                        <div class="col-md-2 offset-5 mb-2">
+                            <a class="btn btn-success" href="{{url('/home')}}" style="background-color: mediumvioletred; border: none; border-radius: 10px;">CLICK HERE</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-           <h2><span class="typed"></span></h2>
-
-            <div class="panel">
-                @component('components.who')
-                @endcomponent
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('storage/images/slider/slideTwo.jpg')}}" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="row">
+                        <div class="col-md-2 offset-5 mb-2">
+                            <a class="btn btn-success" href="{{url('/home')}}" style="background-color: mediumvioletred; border: none; border-radius: 10px;">CLICK HERE</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('storage/images/slider/slideThree.jpg')}}" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="row">
+                        <div class="col-md-2 offset-5 mb-2">
+                            <a class="btn btn-success" href="{{url('/home')}}" style="background-color: mediumvioletred; border: none; border-radius: 10px;">CLICK HERE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('storage/images/slider/slideFour.jpg')}}" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="row">
+                        <div class="col-md-2 offset-5 mb-2">
+                            <a class="btn btn-success" href="{{url('/home')}}" style="background-color: mediumvioletred; border: none; border-radius: 10px;">CLICK HERE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('storage/images/slider/slideFive.jpg')}}" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="row">
+                        <div class="col-md-2 offset-5 mb-2">
+                            <a class="btn btn-success" href="{{url('/home')}}" style="background-color: mediumvioletred; border: none; border-radius: 10px;">CLICK HERE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
-
-
+<br><br>
 @endsection
 
 
-{{--<!doctype html>--}}
-{{--<html lang="{{ app()->getLocale() }}">--}}
-    {{--<head>--}}
-        {{--<meta charset="utf-8">--}}
-        {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-        {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
 
-        {{--<title>{{config('APP_NAME','RealEstate')}}</title>--}}
+        {{--<!-- Styles -->--}}
+        {{--<style>--}}
+            {{--html, body {--}}
+                {{--background-color: #fff;--}}
+                {{--color: #636b6f;--}}
+                {{--font-family: 'Raleway', sans-serif;--}}
+                {{--font-weight: 100;--}}
+                {{--height: 100vh;--}}
+                {{--margin: 0;--}}
+            {{--}--}}
 
-        {{--<!-- Fonts -->--}}
-        {{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
+            {{--.full-height {--}}
+                {{--height: 100vh;--}}
+            {{--}--}}
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+            {{--.flex-center {--}}
+                {{--align-items: center;--}}
+                {{--display: flex;--}}
+                {{--justify-content: center;--}}
+            {{--}--}}
 
-            .full-height {
-                height: 100vh;
-            }
+            {{--.position-ref {--}}
+                {{--position: relative;--}}
+            {{--}--}}
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+            {{--.top-right {--}}
+                {{--position: absolute;--}}
+                {{--right: 10px;--}}
+                {{--top: 18px;--}}
+            {{--}--}}
 
-            .position-ref {
-                position: relative;
-            }
+            {{--.content {--}}
+                {{--text-align: center;--}}
+            {{--}--}}
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+            {{--.title {--}}
+                {{--font-size: 84px;--}}
+            {{--}--}}
 
-            .content {
-                text-align: center;
-            }
+            {{--.links > a {--}}
+                {{--color: #636b6f;--}}
+                {{--padding: 0 25px;--}}
+                {{--font-size: 12px;--}}
+                {{--font-weight: 600;--}}
+                {{--letter-spacing: .1rem;--}}
+                {{--text-decoration: none;--}}
+                {{--text-transform: uppercase;--}}
+            {{--}--}}
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+            {{--.m-b-md {--}}
+                {{--margin-bottom: 30px;--}}
+            {{--}--}}
+        {{--</style>--}}
     {{--</head>--}}
     {{--<body>--}}
         {{----}}
     {{--</body>--}}
 {{--</html>--}}
-<script>
-    $(function(){
-        $(".typed").typed({
-            strings:["this is a test","i think it worked"],
-            typeSpeed:45,
-            loop:true
-        });
-    });
-</script>
+{{--<script>--}}
+    {{--$(function(){--}}
+        {{--$(".typed").typed({--}}
+            {{--strings:["this is a test","i think it worked"],--}}
+            {{--typeSpeed:45,--}}
+            {{--loop:true--}}
+        {{--});--}}
+    {{--});--}}
+{{--</script>--}}

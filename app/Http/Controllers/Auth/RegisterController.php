@@ -74,5 +74,10 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function update(array $data, $id)
+    {
+        return User::update([]);
+    }
+
 
 }

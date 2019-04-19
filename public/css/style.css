@@ -139,3 +139,16 @@ h2{font-size: 25px;}
 .footer .col-sm-3{margin-bottom: 30px;}
 .agents img{ margin-bottom: 20px;}
 }
+
+.carousel-indicators > li{
+    border: 2px solid mediumvioletred;
+    color: transparent !important;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.carousel-indicators > li:active{
+
+    background-color: mediumvioletred !important;
+}

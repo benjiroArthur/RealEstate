@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Orders;
 use Illuminate\Http\Request;
-use App\User;
-use App\Properties;
 
-class UsersController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('users.viewAll')->with('users',$users);
+        //
     }
 
     /**
@@ -43,10 +41,10 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Orders $orders)
     {
         //
     }
@@ -54,10 +52,10 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Orders $orders)
     {
         //
     }
@@ -66,10 +64,10 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Orders $orders)
     {
         //
     }
@@ -77,10 +75,10 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Orders $orders)
     {
         //
     }
