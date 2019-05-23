@@ -24,7 +24,7 @@
                     @endfor
                 </ol>
                 <div class="carousel-inner" style="border: 2px solid mediumvioletred; border-radius: 10px;">
-                    @for($i = 0; $i < 8; $i++)
+                    @for($i = 0; $i < 7; $i++)
                         @if($i == 0)
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{asset('storage/images/about/about.jpg')}}" alt="First slide">

@@ -91,9 +91,9 @@
                   <li class="nav-item" id="bgg1">
                       <a class="nav-link" href="{{ route('login') }}" id="bgg">{{ __('Login') }}</a>
                   </li>
-                  <li class="nav-item" id="bgg1">
-                      <a class="nav-link" href="{{ route('admin.dashboard') }}" id="bgg">{{ __('Admin') }}</a>
-                  </li>
+                  {{--<li class="nav-item" id="bgg1">--}}
+                      {{--<a class="nav-link" href="{{ route('admin.dashboard') }}" id="bgg">{{ __('Admin') }}</a>--}}
+                  {{--</li>--}}
               @else
                   <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -101,9 +101,9 @@
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          @if(Auth::guard('admin')->check())
+                          @if(Auth::user()->admin == 1)
                         <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a>
-                              <a class="dropdown-item" href="{{ route('admin.login') }}">{{ __('Login As Admin') }}</a>
+                              {{--<a class="dropdown-item" href="{{ route('admin.login') }}">{{ __('Login As Admin') }}</a>--}}
 
                               <a class="dropdown-item" href="{{ route('admin.add.user') }}">{{ __('Add User') }}</a>
 

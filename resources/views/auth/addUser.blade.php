@@ -54,10 +54,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('phone_number') ? ' is-invalid' : '' }}" name="phone_number" value="{{ old('phone_number') }}" required autofocus>
+                                <input id="phone" type="tel" class="form-control{{ $errors->has('phone_number') ? ' is-invalid' : '' }}" name="phone_number" value="{{ old('phone_number') }}" required autofocus>
 
                                 @if ($errors->has('phone_number'))
                                     <span class="invalid-feedback" role="alert">
@@ -122,8 +122,9 @@
     }
 
     input[type="text"],
-    input[type="password"]
-    input[type="email"]
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"]
     {
         border: none !important;
         border-bottom: 1px solid #fff !important;
