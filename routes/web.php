@@ -28,6 +28,7 @@ Route::post('/storecontact', 'ContactController@store');
 Route::resource('users','UsersController');
 Route::resource('noyifyme','notifyMeController');
 
+Route::match(['put','patch'],'/users/updatePwd/{id}', 'UsersController@updatePwd')->name('password_change');
 
 
 
@@ -38,12 +39,13 @@ Route::get('/sidebar', 'DashboardController@sidebar');
 Route::get('/users/logout', 'Auth\LoginController@userLogout');
 Route::get('/view', 'DashboardController@viewAll');
 Route::get('/update', 'DashboardController@update');
+Route::get('/admin', 'DashboardController@index')->name('admin.dashboard');
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLOginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLOginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/sidebar', 'AdminController@sidebar')->name('admin.sidebar');
+    //Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+    Route::get('/feedback', 'AdminController@feedback')->name('admin.feedback');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/add-user', 'AddUserController@index')->name('admin.add.user');
 
@@ -53,5 +55,11 @@ Route::prefix('admin')->group(function(){
     Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 });
+
+Route::resource('ad-properties', 'AdminPropertiesController');
+
+Route::get('/premium','PagesController@premiumAjax');
+Route::get('/recent','PagesController@recentAjax');
+Route::get('/all','PagesController@allAjax');
 
 

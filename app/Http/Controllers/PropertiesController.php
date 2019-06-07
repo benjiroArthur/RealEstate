@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Properties;
-use App\Images;
 use App\User;
 use Illuminate\Support\Facades\Session;
 use Image;
 use App\NotifyMe;
+use App\Mail\Email;
+use Illuminate\Support\Facades\Mail;
 
 
 class PropertiesController extends Controller
@@ -25,9 +26,7 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-//        $properties = Properties::where('available', '=', '0')->orderBy('created_at', 'desc')->paginate(12);
-//        return view('properties.index')->with('properties', $properties);
-        //check pagesController@index
+
     }
 
     /**
@@ -110,10 +109,32 @@ class PropertiesController extends Controller
         {
             $fileNameToStore = 'noimage.jpg';
         }
+//generating property ID starts
+        $countProperties = Properties::get()->count();
 
+        if($countProperties == 0){
+            $expNum = 1;
+            $p_id = 'LGR/'.substr(date('Y'), 2).'/'.$expNum;
+        }
+        else
+        {
+            $record = Properties::latest()->first();
+            if(substr($record->p_id, 4, 2) !== substr(date('Y'), 2))
+            {
+                $expNum = 1;
+                $p_id = 'LGR/'.substr(date('Y'), 2).'/'.$expNum;
+            }
+            else
+                {
+                    $expNum = intval(substr($record->p_id, 7));
+                    $expNum += 1;
+                    $p_id = 'LGR/'.substr(date('Y'), 2).'/'.$expNum;
+                }
+        }
+//generating property ID ends
         $properties = new Properties;
 
-
+        $properties->p_id = $p_id;
         $properties->name = $request->input('name');
         $properties->images = $fileNameToStore;
         $properties->price = $request->input('price');
@@ -130,7 +151,14 @@ class PropertiesController extends Controller
         $properties->class = 0;
         $properties->save();
 
-//        $notifyme = NotifyMe::all('email');
+
+
+//        if($properties->save())
+//        {
+//            $notifyme = NotifyMe::all('email');
+//
+//
+//        }
 
         return redirect('/dashboard')->with('success', 'Property Added Successfully');
 
@@ -263,31 +291,74 @@ class PropertiesController extends Controller
         $properties = Properties::find($id);
 
 
-
-        $properties->name = $request->input('name');
-        if($request->hasFile('images'))
+        if(auth()->user()->admin == 0)
         {
-            $properties->images = $fileNameToStore;
-        }
-        $properties->price = $request->input('price');
-        $properties->address = $request->input('address');
-        $properties->access = $request->input('access');
-        $properties->floor_space = $request->input('floor_space');
-        $properties->utility = $request->input('utility');
-        $properties->description = $request->input('description');
-        $properties->transaction_type = $request->input('transaction_type');
-        $properties->property_type = $request->input('property_type');
-        $properties->structure_type = $request->input('structure_type');
-        $properties->user_id = auth()->user()->id;
+            $properties->name = $request->input('name');
+            if($request->hasFile('images'))
+            {
+                $properties->images = $fileNameToStore;
+            }
+            $properties->price = $request->input('price');
+            $properties->address = $request->input('address');
+            $properties->access = $request->input('access');
+            $properties->floor_space = $request->input('floor_space');
+            $properties->utility = $request->input('utility');
+            $properties->description = $request->input('description');
+            $properties->transaction_type = $request->input('transaction_type');
+            $properties->property_type = $request->input('property_type');
+            $properties->structure_type = $request->input('structure_type');
+            $properties->user_id = auth()->user()->id;
 
-        if($request->input('available') == 'Yes')
-        {
-            $properties->available = 1;
+            if($request->input('available') == 'Yes')
+            {
+                $properties->available = 1;
+            }
+            else
+            {
+                $properties->available = 0;
+            }
+
+
+
         }
+
         else
-        {
-            $properties->available = 0;
-        }
+            {
+                $properties->name = $request->input('name');
+                if($request->hasFile('images'))
+                {
+                    $properties->images = $fileNameToStore;
+                }
+                $properties->price = $request->input('price');
+                $properties->address = $request->input('address');
+                $properties->access = $request->input('access');
+                $properties->floor_space = $request->input('floor_space');
+                $properties->utility = $request->input('utility');
+                $properties->description = $request->input('description');
+                $properties->transaction_type = $request->input('transaction_type');
+                $properties->property_type = $request->input('property_type');
+                $properties->structure_type = $request->input('structure_type');
+
+
+                if($request->input('available') == 'Yes')
+                {
+                    $properties->available = 1;
+                }
+                else
+                {
+                    $properties->available = 0;
+                }
+
+                if($request->input('class') == 'Yes')
+                {
+                    $properties->class == 1;
+                }
+                else
+                {
+                    $properties->class == 0;
+                }
+            }
+
         $properties->save();
         return redirect('/dashboard')->with('success', 'Property Updated Successfully.');
 
@@ -306,14 +377,20 @@ class PropertiesController extends Controller
         $properties = Properties::find($id);
 
         //check for correct user
-        if(auth()->user()->id !== $properties->uers_id)
+        if(auth()->user()->id === $properties->uers_id)
         {
-            return redirect('/dashboard')->with('error', 'Unauthorized Access');
+            $properties->delete();
+            return redirect('/dashboard')->with('success', 'Property Deleted Successfully');
+        }
+        elseif (auth()->user()->admin === 1)
+        {
+            $properties->delete();
+            return redirect('/admin')->with('success', 'Property Deleted Successfully');
         }
 
-        $properties->delete();
-        return redirect('/dashboard')->with('success', 'Property Deleted Successfully');
-
+        else {
+            return redirect('/dashboard')->with('error', 'Unauthorized Access');
+        }
     }
 
 

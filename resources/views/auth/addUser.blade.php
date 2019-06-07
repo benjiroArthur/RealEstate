@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            @include('inc.admin_navigator')
+        </div>
+    </div><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="background: rgba(0,0,0,.5);">
-                <div class="card-header text-center"><h2>REGISTER</h2></div>
+                <div class="card-header text-center"><h2>ADD USER</h2></div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                    <form method="POST" action="{{ route('users.store') }}" aria-label="{{ __('Register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -40,7 +45,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('UserName') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('UserName') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
@@ -92,7 +97,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" style="background: mediumvioletred;">
-                                    {{ __('Register') }}
+                                    {{ __('SUBMIT') }}
                                 </button>
                             </div>
                         </div>

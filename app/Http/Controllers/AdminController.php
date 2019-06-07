@@ -35,8 +35,8 @@ class AdminController extends Controller
         }
     }
 
-    public function sidebar()
+    public function feedback()
     {
-        return view('inc.admin_sidebar');
+        return view('admin-properties.feedback');
     }
 }

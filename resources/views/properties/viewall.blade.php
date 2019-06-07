@@ -16,14 +16,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
-                                {{--@if (session('status'))--}}
-                                {{--<div class="alert alert-success" role="alert">--}}
-                                {{--{{ session('status') }}--}}
-                                {{--</div>--}}
-                                {{--@endif--}}
 
-                                {{--@component('components.who')--}}
-                                {{--@endcomponent--}}
                             </div>
 
 
@@ -33,15 +26,25 @@
                             <div class="col-md-12 col-sm-12">
                                 <h3 class="text-center">List Of Properties</h3>
                                 @if(count($properties)>0)
-                                    <table class="table table-striped">
-                                        <tr class="h4">
-                                            <td>Property Name</td>
-                                            <td>Price</td>
-                                            <td>Type</td>
-                                            <td>Status</td>
+                                    <table class="table table-striped" id="viewProperties">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>ID</th>
+                                            <th>Property ID</th>
+                                            <th>Property Name</th>
+                                            <th>Price</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
                                         </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php( $id = 1)
                                         @foreach($properties as $property)
                                             <tr>
+                                                <td>{{$property->id}}</td>
+                                                <td>{{$id}}</td>
+                                                <td>{{$property->p_id}}</td>
                                                 <td>{{$property->name}}</td>
                                                 <td>{{$property->price}}</td>
                                                 <td>For {{$property->transaction_type}}</td>
@@ -57,8 +60,12 @@
                                                     @endif
                                                 </td>
                                             </tr>
+                                            @php( $id++)
                                         @endforeach
+                                        </tbody>
                                     </table>
+                                @else
+                                    <p>No Properties Found</p>
                                 @endif
                             </div>
                         </div>

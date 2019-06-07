@@ -105,7 +105,7 @@
                         <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a>
                               {{--<a class="dropdown-item" href="{{ route('admin.login') }}">{{ __('Login As Admin') }}</a>--}}
 
-                              <a class="dropdown-item" href="{{ route('admin.add.user') }}">{{ __('Add User') }}</a>
+                              {{--<a class="dropdown-item" href="{{ route('admin.add.user') }}">{{ __('Add User') }}</a>--}}
 
                           <a class="dropdown-item" href="{{ route('logout') }}"
                               onclick="event.preventDefault();

@@ -157,6 +157,7 @@
         input[type="text"],
         input[type="file"],
         select,
+
         textarea,
         input[type="password"],
         input[type="email"]
@@ -170,6 +171,9 @@
             /*font-size: 16px;*/
 
 
+        }
+        select option{
+            color: black !important;
         }
 
 

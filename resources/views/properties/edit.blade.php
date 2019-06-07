@@ -196,5 +196,10 @@
         }
 
 
+        select option{
+            color: black !important;
+        }
+
+
     </style>
 @endsection

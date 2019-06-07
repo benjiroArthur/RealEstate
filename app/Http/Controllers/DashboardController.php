@@ -25,6 +25,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $userId = auth()->user()->id;
         if(auth()->user()->pwdChange == 1)
         {
             if (auth()->user()->admin == 0)
@@ -69,13 +70,44 @@ class DashboardController extends Controller
                     ->with('leaseUnavailable', $leaseUnavailable);
             }
             else{
-                $user = User::all();
+                $users = User::all();
                 $properties = Properties::all();
-                return view('/admin')->with('user', $user)->with('properties', $properties);
+
+                $available = count(Properties::where('available', '=', '1')->get());
+                $unavailable = count(Properties::where('available', '=', '0')->get());
+
+                $rentAvailable = count(Properties::where('available', '=', '1')
+                    ->where('transaction_type', '=', 'Rent')->get());
+
+                $saleAvailable = count(Properties::where('available', '=', '1')
+                    ->where('transaction_type', '=', 'Sale')->get());
+
+                $leaseAvailable = count(Properties::where('available', '=', '1')
+                    ->where('transaction_type', '=', 'Lease')->get());
+
+                $rentUnavailable = count(Properties::where('available', '=', '0')
+                    ->where('transaction_type', '=', 'Rent')->get());
+
+                $saleUnavailable = count(Properties::where('available', '=', '0')
+                    ->where('transaction_type', '=', 'Sale')->get());
+
+                $leaseUnavailable = count(Properties::where('available', '=', '0')
+                    ->where('transaction_type', '=', 'Lease')->get());
+                return view('/admin')
+                    ->with('users', $users)
+                    ->with('properties', $properties)
+                    ->with('available', $available)
+                    ->with('unavailable', $unavailable)
+                    ->with('rentAvailable', $rentAvailable)
+                    ->with('saleAvailable', $saleAvailable)
+                    ->with('leaseAvailable', $leaseAvailable)
+                    ->with('rentUnavailable', $rentUnavailable)
+                    ->with('saleUnavailable', $saleUnavailable)
+                    ->with('leaseUnavailable', $leaseUnavailable);
             }
         }
         else{
-            return view('/change_password');
+            return view('/users/changePwd')->with('userId', $userId);
         }
     }
 
@@ -91,7 +123,8 @@ class DashboardController extends Controller
 
     public function update(){
         $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('properties.update')->with('properties', $user->properties);
+        $properties = Properties::where('user_id', '=', $user_id)->get();
+
+        return view('properties.update')->with('properties', $properties);
     }
 }

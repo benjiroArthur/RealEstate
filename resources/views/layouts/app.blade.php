@@ -29,6 +29,9 @@
     <link href="{{ asset('slitslider/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('owl-carousel/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('owl-carousel/owl.theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('data-tables/jquery-dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('data-tables/buttons-dataTables.min.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <div class="site-preloader-wrap">
@@ -67,8 +70,14 @@
 {{--<script src="{{ asset('slitslider/js/modernizr.custom.79639.js') }}"></script>--}}
 {{--<script src="{{ asset('owl-carousel/owl.carousel.js') }}"></script>--}}
 
-
+<script src="{{ asset('data-tables/jquery-dataTables.min.js') }}"></script>
+<script src="{{ asset('data-tables/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('data-tables/jszip.min.js') }}"></script>
+<script src="{{ asset('data-tables/pdfmake.min.js') }}"></script>
+<script src="{{ asset('data-tables/buttons-html5.min.js') }}"></script>
+<script src="{{ asset('data-tables/vfs_fonts.js') }}"></script>
 <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+<script src="{{ asset('js/data-tables-script.js') }}"></script>
 
 <script>
     CKEDITOR.replace( 'article-ckeditor' );

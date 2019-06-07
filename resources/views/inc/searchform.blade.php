@@ -47,7 +47,7 @@
 </div>
 
 <div class="form-group text-center">
-    {{Form::text('name', '',['class'=>'form-control', 'placeholder'=>'Search By Name'])}}
+    {{Form::text('p_id', '',['class'=>'form-control', 'placeholder'=>'Search By Property ID'])}}
 </div>
 
 <div class="form-group">

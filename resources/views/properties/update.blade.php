@@ -32,23 +32,37 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <h3 class="text-center">List Of Properties</h3>
-                                @if(count($properties)>0)
-                                    <table class="table table-striped">
-                                        <tr class="h4">
+                                {{--{{dd($properties)}}--}}
+                                @if(count($properties)<= 0)
+                                    <p>No Properties Found</p>
+                                    @else
+                                    <table class="table table-striped" id="UpdateTable">
+                                        <thead>
+                                        <tr>
+                                            <td>ID</td>
+                                            <td>ID</td>
+                                            <td>Property ID</td>
                                             <td>Property Name</td>
                                             <td>Price</td>
                                             <td></td>
                                             <td></td>
-                                            <td></td>
+                                            <td>Action</td>
                                         </tr>
+                                        </thead>
+                                        @php
+                                        $id = 1;
+                                        @endphp
                                         @foreach($properties as $property)
                                             <tr>
+                                                <td>{{$id}}</td>
+                                                <td>{{$property->id}}</td>
+                                                <td>{{$property->p_id}}</td>
                                                 <td>{{$property->name}}</td>
                                                 <td>{{$property->price}}</td>
                                                 <td>For {{$property->transaction_type}}</td>
                                                 <td><a class="btn btn-primary float-right" href="{{url('/properties/'.$property->id.'/edit')}}" style="border-radius: 6px; width: 100px;"><span class="ion ion-edit"></span> Edit</a></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
+                                                    <button type="button" class="btn btn-danger float-right delete">
                                                         <span class="ion ion-android-delete"></span>
                                                     </button>
                                                     {{--{!! Form::open(['action'=>['PropertiesController@destroy', $property->id], 'method'=>'POST', 'class'=>'float-right']) !!}--}}
@@ -58,9 +72,12 @@
                                                 </td>
                                             </tr>
 
-
+                                            @php
+                                                $id += 1;
+                                            @endphp
                                         @endforeach
                                     </table>
+
                                 @endif
                             </div>
                         </div>
@@ -77,9 +94,12 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
+                <form action="/properties" method="post" id="FormDelete" >
+                    @csrf
+                    {!! method_field('DELETE') !!}
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{$property->name}}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -89,13 +109,11 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
 
-                        {!! Form::open(['action'=>['PropertiesController@destroy', $property->id], 'method'=>'POST']) !!}
-                        {!! Form::hidden('_method', 'DELETE') !!}
-                        {!! Form::button('Delete',['type'=>'submit','class'=>'btn btn-danger']) !!}
-                        {!! Form::close() !!}
                     </div>
                 </div>
+                </form>
             </div>
         </div>
 

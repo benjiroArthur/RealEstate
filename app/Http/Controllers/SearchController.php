@@ -48,9 +48,9 @@ class searchController extends Controller
 
         }
 
-        if($request->has('name') && $request->input('name') != '' )
+        if($request->has('p_id') && $request->input('p_id') != '' )
         {
-            $properties->where('name', '=', $request->input('name'));
+            $properties->where('p_id', '=', $request->input('p_id'));
 
         }
 
