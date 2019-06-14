@@ -19,18 +19,21 @@
 
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+    {{--<link href="{{ asset('css/style-1.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/themify-icons/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pre-load.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
     <link href="{{ asset('slitslider/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('slitslider/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('owl-carousel/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('owl-carousel/owl.theme.css') }}" rel="stylesheet">
     <link href="{{ asset('data-tables/jquery-dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('data-tables/buttons-dataTables.min.css') }}" rel="stylesheet">
+
 
 </head>
 <body>

@@ -21,6 +21,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+       
         $users = User::all();
         if(auth()->user()->admin !== 1)
         {
@@ -45,7 +46,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+       public function store(Request $request)
     {
         $this->validate($request,[
             'name' => 'required|string|max:255',

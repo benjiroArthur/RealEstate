@@ -58,8 +58,12 @@ Route::prefix('admin')->group(function(){
 
 Route::resource('ad-properties', 'AdminPropertiesController');
 
-Route::get('/premium','PagesController@premiumAjax');
-Route::get('/recent','PagesController@recentAjax');
-Route::get('/all','PagesController@allAjax');
+//Route::get('/premium','PagesController@premiumAjax');
+//Route::get('/recent','PagesController@recentAjax');
+//Route::get('/all','PagesController@allAjax');
 
 
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

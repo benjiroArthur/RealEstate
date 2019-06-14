@@ -15,7 +15,7 @@
                 {{--form body to add properties--}}
                     <div class="card-body">
                         {!! Form::open(['action' => 'PropertiesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data','files'=>'true']) !!}
-                        {{--<form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">--}}
+
                             {{ csrf_field() }}
 
                             <div class="row">

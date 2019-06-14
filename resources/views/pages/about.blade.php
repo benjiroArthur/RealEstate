@@ -27,11 +27,11 @@
                     @for($i = 0; $i < 7; $i++)
                         @if($i == 0)
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{asset('storage/images/about/about.jpg')}}" alt="First slide">
+                                <img class="d-block w-100 img-fluid" src="{{asset('storage/images/about/about.jpg')}}" alt="First slide">
                             </div>
                         @else
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="{{asset('storage/images/about/about'.$i.'.jpg')}}" alt="Second slide">
+                                <img class="d-block w-100 img-fluid" src="{{asset('storage/images/about/about'.$i.'.jpg')}}" alt="Second slide">
                             </div>
                         @endif
                     @endfor

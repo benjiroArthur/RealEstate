@@ -7,8 +7,9 @@
             @include('inc.admin_navigator')
         </div>
     </div><br>
+
     <div class="row justify-content-center">
-        <div class="card mt-2 mr-5 col-sm-12 col-md-6 col-lg-3"  style="width: 95%">
+        <div class="card widget-box-two widget-two-danger mt-2 mr-5 col-sm-12 col-md-6 col-lg-3"  style="width: 95%">
             <div class="card-header" style="font-size: 16px; color: mediumvioletred">Properties Available For Sale</div>
             <div class="card-body" style="font-size: 50px; color: mediumvioletred">
                 <span class="ion ion-home"></span>

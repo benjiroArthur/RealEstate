@@ -106,8 +106,8 @@
                     <h6 class="text-center">AGENT INFORMATION</h6>
                 </div>
                 <ul>
-                    <li>{{$name}}</li>
-                    <li>{{$phone}}</li>
+                    <li style="list-style: none">{{$name}}</li>
+                    <li style="list-style: none">{{$phone}}</li>
                 </ul>
             </div>
             <hr style="color: black; height: 20px;">
@@ -116,7 +116,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                {{--<button type="button" class="btn btn-primary">Save changes</button>--}}
             </div>
         </div>
     </div>

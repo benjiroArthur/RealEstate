@@ -8,20 +8,20 @@
         <div class="col-md-6 offset-md-6">
         <div class="loginBox text-center">
             <img src="{{asset('/storage/images/user.png')}}" alt="user" class="user">
-            <h2>AGENT</h2>
+            <h2>USER LOGIN</h2>
             <form method="POST" action="{{ route('login') }}">
             @csrf
 
-                <p><span class="ti ti-email"></span> E-MAIL</p>
-                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                <p><span class="ti ti-user"></span>  USERNAME</p>
+                <input id="email" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
-                @if ($errors->has('email'))
+                @if ($errors->has('username'))
                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                 @endif
 
-                <p><span class="ti ti-lock"></span>PASSWORD</p>
+                <p><span class="ti ti-lock"></span>  PASSWORD</p>
                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                 @if ($errors->has('password'))

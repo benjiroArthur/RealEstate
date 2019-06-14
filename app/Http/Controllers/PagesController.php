@@ -20,8 +20,6 @@ class PagesController extends Controller
 
         return view('pages.index',compact('premiumProperties','allProperties', 'resentProperties'));
 
-
-
     }
 
     public function about()
