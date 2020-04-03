@@ -28,10 +28,10 @@
                         <div class="row">
                             @foreach($premiumProperties as $property)
 
-                                <?php
-                                $image = explode(',',$property->images);
+                                @php
+                                $image = explode(',', $property->images);
                                 //                                    dd($image);
-                                ?>
+                               @endphp
                                 <div class="col-sm-12 col-md-3 col-lg-3">
                                     <div class="card mt-2 mr-1" style="background: white; width: 16rem; height: 400px;">
                                         <div class="properties text-center m-1">

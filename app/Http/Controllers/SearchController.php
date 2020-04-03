@@ -55,10 +55,10 @@ class searchController extends Controller
         }
 
 
-
-
+        //return $properties->paginate(4);
         //dd($properties->get());
         return view('pages.search')->with('properties', $properties->orderBy('created_at','desc')->paginate(4));
+
 
     }
 }

@@ -351,11 +351,11 @@ class PropertiesController extends Controller
 
                 if($request->input('class') == 'Yes')
                 {
-                    $properties->class == 1;
+                    $properties->class = 1;
                 }
                 else
                 {
-                    $properties->class == 0;
+                    $properties->class = 0;
                 }
             }
 

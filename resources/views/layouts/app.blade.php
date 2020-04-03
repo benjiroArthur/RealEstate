@@ -85,5 +85,14 @@
 <script>
     CKEDITOR.replace( 'article-ckeditor' );
 </script>
+
+<script>
+    $('document').ready(function(){
+        setTimeout(function()
+        {
+            $('.alert').fadeOut('fast');
+        },300);
+    });
+</script>
 </body>
 </html>

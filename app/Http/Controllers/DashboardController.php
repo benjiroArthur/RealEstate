@@ -118,12 +118,13 @@ class DashboardController extends Controller
     public function viewAll(){
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
+        //return $user->properties;
         return view('properties.viewall')->with('properties', $user->properties);
     }
 
     public function update(){
         $user_id = auth()->user()->id;
-        $properties = Properties::where('user_id', '=', $user_id)->get();
+        $properties = Properties::where('user_id', $user_id)->get();
 
         return view('properties.update')->with('properties', $properties);
     }

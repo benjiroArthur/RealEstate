@@ -70,6 +70,7 @@
                                         <option>Semi-Detached</option>
                                         <option>Semi-Detached Storey</option>
                                         <option>Terraced</option>
+                                        <option>Land</option>
                                     </select>
                                 </div>
 

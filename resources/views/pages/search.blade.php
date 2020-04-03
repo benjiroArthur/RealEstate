@@ -4,11 +4,12 @@
     <div class="inside-banner">
         <div class="container" style="display: inline-block">
             <span class="text-right" style="float: right"><a href="{{url('/search')}}" style="color: mediumvioletred"></a>
-            @if(count($properties) == 1)
-                {{count($properties)." "}}
+
+                @if(count($properties) == 1)
+                    {{$properties->total()." "}}
                     Property Found
             @elseif(count($properties) > 1)
-                    {{count($properties)." "}}
+                    {{$properties->total()." "}}
                     Properties Found
             @else
                 No Properties Found
